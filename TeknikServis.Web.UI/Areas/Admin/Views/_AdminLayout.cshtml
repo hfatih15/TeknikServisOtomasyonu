@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>INSPINIA | @ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/font-awesome/css")
+    @Styles.Render("~/Areas/Admin/Content/css")
+    @Styles.Render("~/Areas/Admin/font-awesome/css")
 </head>
 <body>
 
@@ -36,12 +36,12 @@
     </div>
     <!-- End wrapper-->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/plugins/metsiMenu")
-    @Scripts.Render("~/plugins/pace")
-    @Scripts.Render("~/plugins/slimScroll")
-    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/Areas/Admin/bundles/jquery")
+    @Scripts.Render("~/Areas/Admin/bundles/bootstrap")
+    @Scripts.Render("~/Areas/Admin/plugins/metsiMenu")
+    @Scripts.Render("~/Areas/Admin/plugins/pace")
+    @Scripts.Render("~/Areas/Admin/plugins/slimScroll")
+    @Scripts.Render("~/Areas/Admin/bundles/inspinia")
     @RenderSection("scripts", required: false)
 </body>
 </html>
