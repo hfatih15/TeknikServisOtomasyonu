@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -60,6 +64,9 @@
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
@@ -80,6 +87,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure">
@@ -90,6 +100,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\animate.css" />
+    <Content Include="Areas\Admin\Content\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\patterns\1.png" />
+    <Content Include="Areas\Admin\Content\patterns\2.png" />
+    <Content Include="Areas\Admin\Content\patterns\3.png" />
+    <Content Include="Areas\Admin\Content\patterns\4.png" />
+    <Content Include="Areas\Admin\Content\patterns\5.png" />
+    <Content Include="Areas\Admin\Content\patterns\6.png" />
+    <Content Include="Areas\Admin\Content\patterns\7.png" />
+    <Content Include="Areas\Admin\Content\patterns\congruent_pentagon.png" />
+    <Content Include="Areas\Admin\Content\patterns\header-profile-skin-1.png" />
+    <Content Include="Areas\Admin\Content\patterns\header-profile-skin-2.png" />
+    <Content Include="Areas\Admin\Content\patterns\header-profile-skin-3.png" />
+    <Content Include="Areas\Admin\Content\patterns\header-profile.png" />
+    <Content Include="Areas\Admin\Content\patterns\otis_redding.png" />
+    <Content Include="Areas\Admin\Content\patterns\shattered.png" />
+    <Content Include="Areas\Admin\Content\patterns\triangular.png" />
+    <Content Include="Areas\Admin\Content\style.css" />
+    <Content Include="Areas\Admin\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Scripts\app\inspinia.js" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.js" />
+    <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_TopNavbar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <None Include="Areas\Admin\Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-2.1.1.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\Scripts\plugins\metisMenu\metisMenu.min.js" />
+    <Content Include="Areas\Admin\Scripts\plugins\pace\pace.min.js" />
+    <Content Include="Areas\Admin\Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -122,6 +169,46 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Content\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Content\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\animated.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\core.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\icons.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\larger.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\list.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\mixins.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\path.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\stacked.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\less\variables.less" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -169,6 +256,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\BundleConfig.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +282,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
