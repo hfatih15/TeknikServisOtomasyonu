@@ -3,9 +3,56 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tema", "Tema", "{9F20520C-86F4-49BE-8E58-FE47D2DD6479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrnekTema", "OrnekTema\OrnekTema.csproj", "{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Proje", "Proje", "{175560FC-CC4E-468A-A938-52CF9D655B9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknikServis.Web.UI", "TeknikServis.Web.UI\TeknikServis.Web.UI.csproj", "{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknikServis.DAL", "TeknikServis.DAL\TeknikServis.DAL.csproj", "{4DED497E-9009-4196-9047-01167A440775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknikServis.BLL", "TeknikServis.BLL\TeknikServis.BLL.csproj", "{495C4920-7F12-4F03-A31D-7C7E8A96E7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknikServis.Models", "TeknikServis.Models\TeknikServis.Models.csproj", "{E61E4533-EBD8-4632-AED5-DF7610588C85}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DED497E-9009-4196-9047-01167A440775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DED497E-9009-4196-9047-01167A440775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DED497E-9009-4196-9047-01167A440775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DED497E-9009-4196-9047-01167A440775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495C4920-7F12-4F03-A31D-7C7E8A96E7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495C4920-7F12-4F03-A31D-7C7E8A96E7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495C4920-7F12-4F03-A31D-7C7E8A96E7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495C4920-7F12-4F03-A31D-7C7E8A96E7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61E4533-EBD8-4632-AED5-DF7610588C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61E4533-EBD8-4632-AED5-DF7610588C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61E4533-EBD8-4632-AED5-DF7610588C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61E4533-EBD8-4632-AED5-DF7610588C85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20A3C1F0-2DE4-45C3-A724-AEB739C8AA6F} = {9F20520C-86F4-49BE-8E58-FE47D2DD6479}
+		{7DD6ACC2-4092-41B5-B03F-F6E64C0CA960} = {175560FC-CC4E-468A-A938-52CF9D655B9D}
+		{4DED497E-9009-4196-9047-01167A440775} = {175560FC-CC4E-468A-A938-52CF9D655B9D}
+		{495C4920-7F12-4F03-A31D-7C7E8A96E7DD} = {175560FC-CC4E-468A-A938-52CF9D655B9D}
+		{E61E4533-EBD8-4632-AED5-DF7610588C85} = {175560FC-CC4E-468A-A938-52CF9D655B9D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0D30BB0-6773-4EDF-97E5-35AB048542CE}
