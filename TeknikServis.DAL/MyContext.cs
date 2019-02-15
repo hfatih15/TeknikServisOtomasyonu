@@ -9,7 +9,7 @@ using TeknikServis.Models.Idendity_Models;
 
 namespace TeknikServis.DAL
 {
-    class MyContext : IdentityDbContext<User>
+   public class MyContext : IdentityDbContext<User>
     {
         public MyContext () : base("name= MyCon")
         {
