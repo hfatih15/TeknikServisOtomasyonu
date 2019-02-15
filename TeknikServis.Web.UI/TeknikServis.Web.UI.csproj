@@ -258,10 +258,12 @@
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\css\CustomSheet.css" />
     <Content Include="vendor\jquery\jquery.js" />
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
     <Content Include="vendor\jquery\jquery.slim.min.js" />
+    <Content Include="vendor\js\CustomJavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -291,6 +293,7 @@
     <Compile Include="Areas\Admin\BundleConfig.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Helpers\HMTLHelperExtensions.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Global.asax.cs">
@@ -304,6 +307,7 @@
     <Content Include="Views\_LayoutMain.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
