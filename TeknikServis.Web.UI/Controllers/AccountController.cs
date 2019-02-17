@@ -7,6 +7,7 @@ using static TeknikServis.BLL.Identity.MemberShipTools;
 using TeknikServis.Models.ViewModels;
 using System.Threading.Tasks;
 using TeknikServis.Models.Idendity_Models;
+using Microsoft.AspNet.Identity;
 
 namespace TeknikServis.Web.UI.Controllers
 {
@@ -75,7 +76,9 @@ namespace TeknikServis.Web.UI.Controllers
                     return View("Index", model);
                 }
 
+                TempData["Message"] = "Kaydınız tamamlanmıştır. Üyelik bilgilerinizle giriş yapabilirsiniz.";
                 return RedirectToAction("Index");
+                
             }
             catch (Exception ex)
             {
@@ -92,5 +95,52 @@ namespace TeknikServis.Web.UI.Controllers
 
 
         }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(RegisterLoginViewModel model)
+        {
+
+            if (!ModelState.IsValid)
+                {
+                    return View("Index", model);
+                }
+
+            try
+            {          
+                var userManager = NewUserManager();
+                var user = await userManager.FindAsync(model.LoginViewModel.UserName, model.LoginViewModel.Password);
+
+                if(user == null)
+                {
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı şifre girişi yaptınız !");
+                    return View("Index", model);
+                }
+                var authManager = HttpContext.GetOwinContext().Authentication;
+
+                var userIdendity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties()
+                {
+                    IsPersistent = model.LoginViewModel.RememberMe
+                }, userIdendity);
+
+                return RedirectToAction("Index", "Home");
+
+            }
+            catch (Exception)
+            {
+                TempData["Model"] = new ErrorViewModel()
+                {
+                    Text = $"Giriş Sırasında Bir Hata Oluştu",
+                    ActionName = "Index",
+                    ControllerName = "Account",
+                    ErrorCode = 404
+                };
+                return RedirectToAction("Error", "Home");
+            }
+
+        }
+
+
     }
 }

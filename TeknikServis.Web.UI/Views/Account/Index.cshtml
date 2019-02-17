@@ -17,7 +17,7 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-login">
                 <div class="panel-heading">
-                    <div class="row">
+                    <div class="row">                    
                         <div class="col-xs-6">
                             <a href="#" class="active" id="login-form-link">Login</a>
                         </div>
@@ -33,19 +33,20 @@
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login-form", role = "form", style = "display: block;" }))
                             {
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username11", id = "username", name = "username" })
+                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username", id = "username", name = "username" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Password11", type = "password", id = "password", name = "password" })
+                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Password", type = "password", id = "password", name = "password" })
                                 </div>
                                 <div class="form-group text-center">
                                     @Html.CheckBoxFor(x => x.LoginViewModel.RememberMe, new { id = "remember", name = "remember" })
-                                    <label for="remember"> Remember Me</label>
+                                    <label for="remember"> Beni Hatırla</label>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>
+                                            @*<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">*@
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            }
+                            }                       
                         </div>
                     </div>
                 </div>
