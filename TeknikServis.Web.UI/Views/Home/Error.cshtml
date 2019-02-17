@@ -1,0 +1,49 @@
+﻿@using TeknikServis.Models.ViewModels   
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    var message = TempData["Model"] as ErrorViewModel;
+}
+
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        404
+        <small>Page Not Found</small>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="@Url.Action(message?.ActionName??"Index",message?.ControllerName??"Home")">Geri Dön</a>
+        </li>
+        <li class="breadcrumb-item active">404</li>
+    </ol>
+
+    <div class="jumbotron">
+        <h1 class="display-1">@(message?.ErrorCode ?? 404)</h1>
+        <p>@(message?.Text ?? "Aradığınız sayfa bulunamadı")</p>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="services.html">Services</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+
+
+

@@ -2,14 +2,15 @@
 @{
     Layout = null;
 }
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="~/vendor/css/CustomSheet.css" rel="stylesheet" />
+    <script src="~/vendor/js/CustomJavaScript.js"></script>
+</head>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="~/vendor/css/CustomSheet.css" rel="stylesheet" />
-<script src="~/vendor/js/CustomJavaScript.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 
 <div class="container">
     <div class="row">
@@ -32,13 +33,13 @@
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login-form", role = "form", style = "display: block;" }))
                             {
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username11" ,id="username",name="username"})
+                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username11", id = "username", name = "username" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Password11", type = "password",id="password",name="password" })
+                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Password11", type = "password", id = "password", name = "password" })
                                 </div>
                                 <div class="form-group text-center">
-                                    @Html.CheckBoxFor(x => x.LoginViewModel.RememberMe,new {id="remember",name="remember" })
+                                    @Html.CheckBoxFor(x => x.LoginViewModel.RememberMe, new { id = "remember", name = "remember" })
                                     <label for="remember"> Remember Me</label>
                                 </div>
                                 <div class="form-group">
@@ -61,25 +62,37 @@
                             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "register-form", role = "form", style = "display: none;" }))
                             {
                                 <div class="form-group">
-                                    
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.UserName, new { @class = "form-control", placeholder = "UserName",id="username",name="username"})
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.Ad, new { @class = "form-control", placeholder = "Adınız" })
                                 </div>
                                 <div class="form-group">
-                                
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email" })
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
+                                </div>
+
+                                <div class="form-group">
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.UserName, new { @class = "form-control", placeholder = "UserName", id = "username", name = "username" })
                                 </div>
                                 <div class="form-group">
-                                
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Password, new { @class = "form-control", placeholder = "Password", id = "password", name = "password" })
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email", type = "email" })
                                 </div>
                                 <div class="form-group">
-                                   
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password", id = "confirm-password", name = "confirm-password" })
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.Password, new { @class = "form-control", placeholder = "Password", id = "password",
+                                   name = "password" , type="password" })
+                                </div>
+                                <div class="form-group">
+
+                                    @Html.TextBoxFor(x => x.RegisterViewModel.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password", id = "confirm-password",
+                                   name = "confirm-password" , type="password" })
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            @*<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">*@
+                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register">Kayıt Ol</button>
                                         </div>
                                     </div>
                                 </div>

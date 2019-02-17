@@ -11,7 +11,7 @@ namespace TeknikServis.DAL
 {
    public class MyContext : IdentityDbContext<User>
     {
-        public MyContext () : base("name= MyCon")
+        public MyContext () : base("name=MyCon")
         {
         }
 
