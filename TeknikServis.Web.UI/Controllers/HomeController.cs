@@ -8,6 +8,8 @@ namespace TeknikServis.Web.UI.Controllers
 {
     public class HomeController : Controller
     {
+
+        [Authorize]
         // GET: Home
         public ActionResult Index()
         {

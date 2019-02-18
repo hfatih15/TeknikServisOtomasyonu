@@ -151,5 +151,15 @@ namespace TeknikServis.Web.UI.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            authManager.SignOut();
+            return RedirectToAction("Index", "Account");
+
+        }
+
+
     }
 }
