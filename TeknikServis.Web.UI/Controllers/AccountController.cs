@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using System.IO;
 using TeknikServis.BLL.Helpers;
 using System.Web.Helpers;
+using TeknikServis.BLL.Services.Senders;
 
 namespace TeknikServis.Web.UI.Controllers
 {
@@ -61,7 +62,8 @@ namespace TeknikServis.Web.UI.Controllers
                     UserName = rm.UserName,
                     Email = rm.Email,
                     Ad = rm.Ad,
-                    Soyad = rm.Soyad
+                    Soyad = rm.Soyad,
+                    ActivationCode = StringHelpers.GetCode()                    
                 };
 
                 var result = await userManager.CreateAsync(YeniKullanici, rm.Password);
@@ -70,13 +72,20 @@ namespace TeknikServis.Web.UI.Controllers
                 {
                     if (userStore.Users.Count() == 1)
                     {
-                        await userManager.AddToRoleAsync(YeniKullanici.Id, "Admin");
-                        //Mail gelicek
+                        await userManager.AddToRoleAsync(YeniKullanici.Id, "Admin");                      
                     }
                     else
                     {
                         await userManager.AddToRoleAsync(YeniKullanici.Id, "Musteri");
                     }
+
+                    string SiteUrl = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                                     (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+
+                    var emailService = new EmailService();
+                    var body = $"Merhaba <b>{YeniKullanici.Ad} {YeniKullanici.Soyad}</b><br>Hesabınızı onaylamak yada aktif etmek için aşağıdaki linke tıklayınız !<br> <a href='{SiteUrl}/account/activation?code={YeniKullanici.ActivationCode}'> Hesabınızı aktifleştimek için tıklayınız !</a> ";
+                    await emailService.SendAsync(new IdentityMessage() { Body = "body", Subject = "Aktivasyon Kodu"}, YeniKullanici.Email);
+
                 }
                 else
                 {
@@ -166,7 +175,6 @@ namespace TeknikServis.Web.UI.Controllers
         }
 
         [HttpGet]
-    
         public ActionResult UserProfile()
         {
 
@@ -204,6 +212,7 @@ namespace TeknikServis.Web.UI.Controllers
             }
            
         }
+
         [HttpPost]
         public async Task<ActionResult> UpdateProfile(ProfilePasswordViewModel model)
         {
@@ -242,8 +251,8 @@ namespace TeknikServis.Web.UI.Controllers
                     file.SaveAs(dosyayolu);
 
                     WebImage img = new WebImage(dosyayolu);
-                    img.Resize(250, 250, false);
-                    img.AddTextWatermark("Wissen");
+                    img.Resize(45, 45, false);
+                  //  img.AddTextWatermark("Wissen");
                     img.Save(dosyayolu);
                     var oldPath = user.AvatarPath;
                     user.AvatarPath = "/Upload/" + fileName + extName;
@@ -330,6 +339,42 @@ namespace TeknikServis.Web.UI.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Activation (string code)
+        {
+            try
+            {
+                var userStore = NewUserStore();
+                var user = userStore.Users.FirstOrDefault(x => x.ActivationCode == code);
 
+                if (user != null)
+                {
+                    if (user.EmailConfirmed)
+                    {
+                        ViewBag.Message = $"<span class='alert alert-success'>Bu hesap daha önce aktive edilmiştir.</span>";
+                    }
+                    else
+                    {
+                        user.EmailConfirmed = true;
+
+                        userStore.Context.SaveChanges();
+                        ViewBag.Message = $"<span class='alert alert-success'>Aktivasyon işleminiz başarılı</span>";
+                    }
+                }
+                else
+                {
+                    ViewBag.Message = $"<span class='alert alert-danger'>Aktivasyon başarısız</span>";
+                }
+            }
+            catch (Exception)
+            {
+
+                ViewBag.Message = "<span class='alert alert-danger'>Aktivasyon işleminde bir hata oluştu</span>";
+            }
+            return View();
+        
+
+        }
     }
 }

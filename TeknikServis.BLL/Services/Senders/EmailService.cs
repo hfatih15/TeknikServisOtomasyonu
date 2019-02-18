@@ -28,8 +28,8 @@ namespace TeknikServis.BLL.Services.Senders
 
             public EmailService()
             {
-                this.SenderMail = "wissenakademie.wm6@gmail.com";
-                this.Password = "qweqweasdasd123";
+                this.SenderMail = "teknikservisotomasyonuwissen@gmail.com";
+                this.Password = "fhky2478";
                 this.Smtp = "smtp.gmail.com";
                 this.SmtpPort = 587;
             }
