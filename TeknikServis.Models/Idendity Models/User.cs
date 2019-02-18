@@ -16,5 +16,7 @@ namespace TeknikServis.Models.Idendity_Models
         [StringLength(50)]
         [Required]
         public string Soyad { get; set; }
+        public string ActivationCode { get; set; }
+        public string AvatarPath { get; set; }
     }
 }

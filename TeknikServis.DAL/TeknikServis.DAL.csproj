@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201902150715156_ilk.Designer.cs">
       <DependentUpon>201902150715156_ilk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902180916364_Aktivasyon kodu eklendi.cs" />
+    <Compile Include="Migrations\201902180916364_Aktivasyon kodu eklendi.Designer.cs">
+      <DependentUpon>201902180916364_Aktivasyon kodu eklendi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +137,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902150715156_ilk.resx">
       <DependentUpon>201902150715156_ilk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902180916364_Aktivasyon kodu eklendi.resx">
+      <DependentUpon>201902180916364_Aktivasyon kodu eklendi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
