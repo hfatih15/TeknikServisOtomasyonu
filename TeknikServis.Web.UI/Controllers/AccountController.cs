@@ -40,7 +40,16 @@ namespace TeknikServis.Web.UI.Controllers
                 if (user != null)
                 {
                     ModelState.AddModelError("UserName", "Bu kullanıcı adı daha önceden alınmış !");
-                    return View("Index", model);
+                    //return View("Index", model);
+                    TempData["Model"] = new ErrorViewModel()
+                    {
+                        Text = $"Bu kullanıcı adı daha önce alınmıştır !",
+                        ActionName = "Index",
+                        ControllerName = "Account",
+                        ErrorCode = 404
+                    };
+                    return RedirectToAction("Error", "Home");
+
                 }
                 var YeniKullanici = new User()
                 {
