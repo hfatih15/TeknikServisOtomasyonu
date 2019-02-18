@@ -313,6 +313,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
