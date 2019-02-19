@@ -353,6 +353,7 @@ namespace TeknikServis.Web.UI.Controllers
                     if (user.EmailConfirmed)
                     {
                         ViewBag.Message = $"<span class='alert alert-success'>Bu hesap daha önce aktive edilmiştir.</span>";
+                        
                     }
                     else
                     {
@@ -372,7 +373,8 @@ namespace TeknikServis.Web.UI.Controllers
 
                 ViewBag.Message = "<span class='alert alert-danger'>Aktivasyon işleminde bir hata oluştu</span>";
             }
-            return RedirectToAction("Index");
+            return View();
+            
         
 
         }
