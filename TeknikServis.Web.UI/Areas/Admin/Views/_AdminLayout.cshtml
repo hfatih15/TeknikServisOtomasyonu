@@ -7,8 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>INSPINIA | @ViewBag.Title</title>
+    <meta name="description" content="ASP.Net MVC ile template giydirme eğitimi" />
+    <meta name="author" content="Mesut" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="apple-touch-icon" href="~/assets/img/favicons/apple-touch-icon.png" />
+    <link rel="icon" href="~/assets/img/favicons/favicon.ico" />
     @Styles.Render("~/Areas/Admin/Content/css")
     @Styles.Render("~/Areas/Admin/font-awesome/css")
+    @Styles.Render("~/bundle/css")
+    @RenderSection("top", false)
 </head>
 <body>
 
@@ -42,6 +49,8 @@
     @Scripts.Render("~/Areas/Admin/plugins/pace")
     @Scripts.Render("~/Areas/Admin/plugins/slimScroll")
     @Scripts.Render("~/Areas/Admin/bundles/inspinia")
+    @Scripts.Render("~/bundle/js")
     @RenderSection("scripts", required: false)
+    @RenderSection("bottom", false)
 </body>
 </html>
