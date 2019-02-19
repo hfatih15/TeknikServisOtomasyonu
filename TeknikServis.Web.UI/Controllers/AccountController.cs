@@ -84,7 +84,7 @@ namespace TeknikServis.Web.UI.Controllers
 
                     var emailService = new EmailService();
                     var body = $"Merhaba <b>{YeniKullanici.Ad} {YeniKullanici.Soyad}</b><br>Hesabınızı onaylamak yada aktif etmek için aşağıdaki linke tıklayınız !<br> <a href='{SiteUrl}/account/activation?code={YeniKullanici.ActivationCode}'> Hesabınızı aktifleştimek için tıklayınız !</a> ";
-                    await emailService.SendAsync(new IdentityMessage() { Body = "body", Subject = "Aktivasyon Kodu"}, YeniKullanici.Email);
+                    await emailService.SendAsync(new IdentityMessage() { Body = body, Subject = "Aktivasyon Kodu"}, YeniKullanici.Email);
 
                 }
                 else
@@ -372,7 +372,7 @@ namespace TeknikServis.Web.UI.Controllers
 
                 ViewBag.Message = "<span class='alert alert-danger'>Aktivasyon işleminde bir hata oluştu</span>";
             }
-            return View();
+            return RedirectToAction("Index");
         
 
         }
