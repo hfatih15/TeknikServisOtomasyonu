@@ -21,17 +21,17 @@
 
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="#" class="active" id="login-form-link">Login</a>
+                            <a href="#" style="color:black" class="active" id="login-form-link">Giriş</a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="#" id="register-form-link">Register</a>
+                            <a href="#" style="color:black" id="register-form-link">Kaydol</a>
                         </div>
                     </div>
                     <hr>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" >
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" >
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login-form", role = "form", style = "display: block;" }))
                             {
                                 <div class="form-group">
@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>
+                                            <button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>
                                           
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="@Url.Action("RecoverPassword", "Account")" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                <a href="@Url.Action("RecoverPassword", "Account")" tabindex="5" class="forgot-password" style="color:black;">Şifrenizi Mi Unuttunuz ?</a>
                                             </div>
                                            
                                         </div>
@@ -96,7 +96,7 @@
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                          
-                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register">Kayıt Ol</button>
+                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register" style="background-color:black;">Kayıt Ol</button>
                                         </div>
                                     </div>
                                 </div>
