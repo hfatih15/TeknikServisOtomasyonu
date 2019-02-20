@@ -16,7 +16,7 @@
         <div class="card-block tab-content">
             <!-- Profile tab 1 -->
             <div class="tab-pane fade in active">
-                @using (Html.BeginForm("EditUser", "Admin", FormMethod.Post, new { @class = "fieldset", enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("EditUser", "AdminHome", FormMethod.Post, new { @class = "fieldset", enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.Id)
@@ -65,7 +65,7 @@
     <div class="card">
         <div class="card-block">
             <div class="form-group">
-                @using (Html.BeginForm("EditUserRoles", "Admin", FormMethod.Post))
+                @using (Html.BeginForm("EditUserRoles", "AdminHome", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.Id)

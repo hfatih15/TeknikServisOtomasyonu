@@ -11,7 +11,7 @@ namespace TeknikServis.Models.Enums
 
         Admin,
         Operator,
-        Tekniknisyen,
+        Teknisyen,
         Musteri,
        
     }
