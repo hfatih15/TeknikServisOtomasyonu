@@ -167,6 +167,11 @@ namespace TeknikServis.Web.UI.Controllers
 
         }
 
+        public ActionResult GirisSayfasi()
+        {
+            return RedirectToAction("Index", "Account");
+        }
+
 
         [HttpGet]
         public ActionResult Logout()
