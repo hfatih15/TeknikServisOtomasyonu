@@ -115,8 +115,12 @@
   <ItemGroup>
     <Compile Include="Abstract\BaseEntity.cs" />
     <Compile Include="Abstract\BaseEntity2.cs" />
+    <Compile Include="Entities\Ariza.cs" />
     <Compile Include="Enums\IdentityRoles.cs" />
     <Compile Include="Enums\MessageStates.cs" />
+    <Compile Include="Enums\SehirAdi.cs" />
+    <Compile Include="Enums\UrunTipi.cs" />
+    <Compile Include="Enums\UrunDurumu.cs" />
     <Compile Include="Idendity Models\Role.cs" />
     <Compile Include="Idendity Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
