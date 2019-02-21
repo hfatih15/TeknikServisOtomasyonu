@@ -427,6 +427,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\TeknisyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -445,6 +446,7 @@
     <Content Include="Views\Account\RecoverPassword.cshtml" />
     <Content Include="Views\Account\Activation.cshtml" />
     <Content Include="Views\Musteri\ArizaKayit.cshtml" />
+    <Content Include="Views\Teknisyen\ArizaRaporGiris.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

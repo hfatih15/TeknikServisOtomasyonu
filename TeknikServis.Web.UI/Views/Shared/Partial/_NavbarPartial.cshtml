@@ -1,62 +1,65 @@
 ﻿@using TeknikServis.BLL.Identity
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top" >
+    <div style="margin-right:0px;">
+        <img src="~/vendor/img/FK.png" width="60" height="60" />
+    </div>
     <div class="container">
-        <div style="margin-right:10px;">
-            <img src="~/vendor/img/FK.png" width="70" height="70" />
-        </div>
-        <div><h3 style="color:white">FK Bilişim</h3></div>
-        <a class="navbar-brand" href="@Url.Action("UserProfile","Account")">@MemberShipTools.GetNameSurname(null)</a>
+
+        @*<div><h3 style="color:white">FK Bilisim</h3></div>*@
+        @*<label class="navbar-brand" style="margin-top:7px; margin-left:0px; font-size:17px;">Giriş Yapan Üye: </label>*@ 
+        <a class="navbar-brand" style=" font-size:17px;" href="@Url.Action("UserProfile", "Account") ">Giriş Yapan Üye: <b> @MemberShipTools.GetNameSurname(null)   </b> </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index","Home")">Ana Sayfa</a>
+                    <a class="nav-link" style="color:white;" href="@Url.Action("Index","Home")">Ana Sayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("GirisSayfasi","Account")">Giriş Yap</a>
+                    <a class="nav-link" style="color:white;" href="@Url.Action("GirisSayfasi","Account")">Giriş Yap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Logout","Account")">Çıkış Yap</a>
+                    <a class="nav-link" style="color:white;" href="@Url.Action("Logout","Account")">Çıkış Yap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index","admin/AdminHome")">Admin Paneli</a>
+                    <a class="nav-link" style="color:white;"  href="@Url.Action("Index","admin/AdminHome")">Admin Paneli</a>
+                   
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Arıza Kaydı
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                    <div class="dropdown-menu dropdown-menu-right" style="color:white;"  aria-labelledby="navbarDropdownPortfolio">
                         <a class="dropdown-item" href="@Url.Action("ArizaKayit","Musteri")">Arıza Girişi</a>
                         <a class="dropdown-item" href="portfolio-2-col.html">Arıza Durumu</a>
                         @*<a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>*@
+                        <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                        <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>*@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Operatör
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <div class="dropdown-menu dropdown-menu-right" style="color:white;" aria-labelledby="navbarDropdownBlog">
                         <a class="dropdown-item" href="blog-home-1.html">Arıza Listesi</a>
                         @*<a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                <a class="dropdown-item" href="blog-post.html">Blog Post</a>*@
+                        <a class="dropdown-item" href="blog-post.html">Blog Post</a>*@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Teknisyen
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="full-width.html">Arıza Rapor Girişi</a>
+                        <a class="dropdown-item" href="@Url.Action("ArizaRaporGiris","Teknisyen")">Arıza Rapor Girişi</a>
                         @*<a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a>*@
+                        <a class="dropdown-item" href="faq.html">FAQ</a>
+                        <a class="dropdown-item" href="404.html">404</a>
+                        <a class="dropdown-item" href="pricing.html">Pricing Table</a>*@
                     </div>
                 </li>
             </ul>

@@ -123,6 +123,7 @@ namespace TeknikServis.Web.UI.Controllers
         }
 
         [HttpPost]
+        
         //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(RegisterLoginViewModel model)
         {
@@ -172,7 +173,7 @@ namespace TeknikServis.Web.UI.Controllers
             return RedirectToAction("Index", "Account");
         }
 
-
+        [Authorize]
         [HttpGet]
         public ActionResult Logout()
         {
@@ -182,6 +183,7 @@ namespace TeknikServis.Web.UI.Controllers
 
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult UserProfile()
         {
