@@ -1,0 +1,97 @@
+﻿@model TeknikServis.Models.ViewModels.ArizaViewModel
+
+@{    
+    ViewBag.Title = "ArizaKayit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<link href="~/vendor/css/ArizaForm.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form_main">
+                <h4 class="heading"><strong>Arıza </strong> Kaydı <span></span></h4>
+                <div class="form">
+                    @*<input type="text" required="" placeholder="Please input your Name" value="" name="name" class="txt">
+                    <input type="text" required="" placeholder="Please input your mobile No" value="" name="mob" class="txt">
+                    <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt">
+
+                    <textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>
+                    <input type="submit" value="submit" name="submit" class="txt2">*@
+                    <form action="contact_send_mail.php" method="post" id="contactFrm" name="contactFrm">
+                        @using (Html.BeginForm("ArizaKayit", "Musteri", FormMethod.Post, new { id = "contactFrm", name = "contactFrm" }))
+                        {
+                            <div class="form-group">
+                                @Html.Label("Urun Tipi")
+                                @Html.EnumDropDownListFor(x => x.UrunTipi, "Urun Tipini Seciniz", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.UrunAdi)
+                                @Html.TextBoxFor(x => x.UrunAdi, new { @class = "txt", placeholder = "Urun Adı", type = "text", name = "mob" })
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Arıza Açıklaması")
+                                @Html.TextAreaFor(x => x.MusteriYorumu, new { @class = "txt_3", placeholder = "Arıza Acıklaması", type = "text", name = "mess" })
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        @Html.Label("Urun Fotografı")
+                                        @Html.TextBoxFor(x => x.UrunFotografi, new { @class = "form-control", type = "file", multiple = false })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        @Html.Label("Urun Faturası")
+                                        @Html.TextBoxFor(x => x.UrunFaturaFotografi, new { @class = "form-control", type = "file", multiple = false })
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("Bulundugunuz Şehir") 
+                                @Html.EnumDropDownListFor(
+                                    x => x.SehirAdi,
+                                    "Sehir Seçiniz",
+                                     new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                 @Html.Label("Adresiniz")
+                                @Html.TextAreaFor(x => x.Adres, new { @class = "txt_3", placeholder = " Adres", type = "text", name = "mess" })
+                            </div>
+                            <div class="form-group text-center">
+                                @Html.Label("Garanti Durumu")
+
+                                @Html.CheckBoxFor(x => x.GarantiDurumu, new { @checked = "Garantisi Var" })
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        @*<button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>*@
+                                        <button type="submit" value="submit" name="submit">Kaydet </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,10 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+        <div style="margin-right:10px;">
+            <img src="~/vendor/img/FK.png" width="70" height="70" />
+        </div>
+        <div><h3 style="color:white">FK Bilişim</h3></div>
         <a class="navbar-brand" href="@Url.Action("UserProfile","Account")">@MemberShipTools.GetNameSurname(null)</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +30,7 @@
                         Arıza Kaydı
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                        <a class="dropdown-item" href="portfolio-1-col.html">Arıza Girişi</a>
+                        <a class="dropdown-item" href="@Url.Action("ArizaKayit","Musteri")">Arıza Girişi</a>
                         <a class="dropdown-item" href="portfolio-2-col.html">Arıza Durumu</a>
                         @*<a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
                 <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>

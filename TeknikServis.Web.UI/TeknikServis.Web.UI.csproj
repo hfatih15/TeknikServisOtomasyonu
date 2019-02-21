@@ -381,7 +381,9 @@
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\css\ArizaForm.css" />
     <Content Include="vendor\css\CustomSheet.css" />
+    <Content Include="vendor\img\FK.png" />
     <Content Include="vendor\jquery\jquery.js" />
     <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="vendor\jquery\jquery.slim.js" />
@@ -423,6 +425,7 @@
     <Compile Include="Areas\Admin\ViewModels\UpdateUserRoleViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\PartialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -441,6 +444,7 @@
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Account\RecoverPassword.cshtml" />
     <Content Include="Views\Account\Activation.cshtml" />
+    <Content Include="Views\Musteri\ArizaKayit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

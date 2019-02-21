@@ -48,7 +48,11 @@ namespace TeknikServis.Models.Entities
         [Required]
         [DisplayName("Arıza Açıklaması")]
         public string MusteriYorumu { get; set; }
-  
+
+        [Required]
+        [DisplayName("Ürün Adı")]
+        public string UrunAdi { get; set; }
+
         [DisplayName("Tamir Açıklaması")]
         public string TeknisyenYorumu { get; set; }
        
