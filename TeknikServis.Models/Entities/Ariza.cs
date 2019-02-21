@@ -6,16 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeknikServis.Models.Abstract;
 using TeknikServis.Models.Enums;
 
 namespace TeknikServis.Models.Entities
 {
     [Table("Arizalar")]
-  public   class Ariza
+  public   class Ariza:BaseEntity<int>
     {
 
-        [Required]
-        public int ArizaId { get; set; }
         [Required]
         [DisplayName("Muşteri Adı")]
         public string MusteriId { get; set; }
