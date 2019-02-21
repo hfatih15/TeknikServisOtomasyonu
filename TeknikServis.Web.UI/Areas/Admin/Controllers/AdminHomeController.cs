@@ -149,7 +149,9 @@ namespace TeknikServis.Web.UI.Areas.Admin.Controllers
                     Soyad = user.Soyad,
                     Id = user.Id,
                     TelefonNO = user.PhoneNumber,
-                    UserName = user.UserName
+                    UserName = user.UserName,
+                    Adres=user.Adres,
+                    SehirAdi=user.SehirAdi
                 };
                 return View(model);
             }
@@ -184,6 +186,8 @@ namespace TeknikServis.Web.UI.Areas.Admin.Controllers
                 user.Soyad = model.Soyad;
                 user.PhoneNumber = model.TelefonNO;
                 user.Email = model.Email;
+                user.Adres = model.Adres;
+                user.SehirAdi = model.SehirAdi;
 
                 if (model.PostedFile != null &&
                     model.PostedFile.ContentLength > 0)
@@ -257,6 +261,8 @@ namespace TeknikServis.Web.UI.Areas.Admin.Controllers
 
             return RedirectToAction("EditUser", new { id = userId });
         }
+
+       
 
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using TeknikServis.Models.Enums;
 
 namespace TeknikServis.Models.ViewModels
 {
@@ -27,6 +28,8 @@ namespace TeknikServis.Models.ViewModels
         public string Email { get; set; }
         [Display(Name = "Telefon No.")]
         public string TelefonNO { get; set; }
+        public string Adres { get; set; }
+        public SehirAdi? SehirAdi { get; set; }
 
         public string AvatarPath { get; set; }
         public HttpPostedFileBase PostedFile { get; set; }

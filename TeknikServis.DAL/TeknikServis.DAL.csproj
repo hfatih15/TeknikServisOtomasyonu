@@ -120,9 +120,9 @@
     <Compile Include="Migrations\201902180916364_Aktivasyon kodu eklendi.Designer.cs">
       <DependentUpon>201902180916364_Aktivasyon kodu eklendi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902201201511_ariza.cs" />
-    <Compile Include="Migrations\201902201201511_ariza.Designer.cs">
-      <DependentUpon>201902201201511_ariza.cs</DependentUpon>
+    <Compile Include="Migrations\201902210657306_ariza.cs" />
+    <Compile Include="Migrations\201902210657306_ariza.Designer.cs">
+      <DependentUpon>201902210657306_ariza.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="Migrations\201902180916364_Aktivasyon kodu eklendi.resx">
       <DependentUpon>201902180916364_Aktivasyon kodu eklendi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201201511_ariza.resx">
-      <DependentUpon>201902201201511_ariza.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902210657306_ariza.resx">
+      <DependentUpon>201902210657306_ariza.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

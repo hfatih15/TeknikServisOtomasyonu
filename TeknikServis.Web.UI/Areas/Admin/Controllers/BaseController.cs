@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TeknikServis.BLL.Identity;
+using TeknikServis.Models.Enums;
 
 namespace TeknikServis.Web.UI.Areas.Admin.Controllers
 {
@@ -40,5 +41,8 @@ namespace TeknikServis.Web.UI.Areas.Admin.Controllers
                 });
             return data;
         }
+
+
+    
     }
 }
