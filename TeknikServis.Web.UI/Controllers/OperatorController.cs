@@ -15,5 +15,12 @@ namespace TeknikServis.Web.UI.Controllers
         {
             return View(new ArizaRepo().GetAll());
         }
+
+        public ActionResult ArizaDetaySayfasi()
+        {
+
+            return View();
+
+        }
     }
 }
