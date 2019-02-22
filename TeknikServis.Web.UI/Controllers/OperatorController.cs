@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TeknikServis.BLL.Repository;
 using TeknikServis.Models.Entities;
+using TeknikServis.Models.ViewModels;
+using static TeknikServis.BLL.Identity.MemberShipTools;
 
 namespace TeknikServis.Web.UI.Controllers
 {
@@ -16,11 +19,40 @@ namespace TeknikServis.Web.UI.Controllers
             return View(new ArizaRepo().GetAll());
         }
 
-        public ActionResult ArizaDetaySayfasi()
+        public ActionResult ArizaDetaySayfasi(int id = 0)
         {
+            var data = new ArizaRepo().GetById(id);
+            if (data == null)
+                RedirectToAction("Index");
 
-            return View();
+            var id2 = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            var user = NewUserManager().FindById(id2);
 
+
+
+         var model =   new ArizaViewModel()
+            {
+
+                UrunTipi = data.UrunTipi,
+                 MusteriId=data.MusteriId,
+                  UrunAdi=data.UrunAdi ,
+                  MusteriYorumu=data.MusteriYorumu ,
+                   UrunResmi=data.UrunResmi ,
+                   FaturaResmi=data.FaturaResmi ,
+                   SehirAdi=data.SehirAdi ,
+                    Adres=data.Adres ,
+                    GarantiDurumu=data.GarantiDurumu ,
+                     ArizaId=data.Id
+
+            };
+
+
+
+
+            return View(model);
+
+
+           
         }
     }
 }

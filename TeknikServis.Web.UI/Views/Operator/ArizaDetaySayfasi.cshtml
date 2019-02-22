@@ -19,12 +19,12 @@
             <div class="row">
                 <aside class="col-sm-5 border-right">
                     <article class="gallery-wrap">
-                        @*<div class="img-big-wrap">
-                                <div> <a href="#"><img src="@Model.UrunFotografi"></a></div>
+                        <div class="img-big-wrap">
+                                <div> <a href="#"><img src="@Model.UrunResmi"></a></div>
                             </div> <!-- slider-product.// -->
                             <div class="img-small-wrap">
-                                <div class="item-gallery"> <img src="@Model.UrunFaturaFotografi"> </div>
-                            </div> <!-- slider-nav.// -->*@
+                                <div class="item-gallery"> <img src="@Model.FaturaResmi"> </div>
+                            </div> <!-- slider-nav.// -->
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-7">
@@ -32,21 +32,21 @@
                         <h2 class="title mb-3">Ürün Detay Sayfası</h2>
 
                         <dl class="item-property">
-                            <dt>Müşteri Adı Soyadı: <b>@*@MemberShipTools.GetNameSurname(null)*@</b></dt> <hr />
+                            <dt>Müşteri Adı Soyadı: <b>@MemberShipTools.GetNameSurname(null)</b></dt> <hr />
                             <dt>
-                                Ürün Tipi :  <b>@*@Model.UrunTipi*@</b> <hr />
+                                Ürün Tipi :  <b>@Model.UrunTipi</b> <hr />
                             </dt> 
-                            <dt>Ürün Adı: @*<b>@Model.UrunAdi</b>*@</dt> <hr />
+                            <dt>Ürün Adı: <b>@Model.UrunAdi</b></dt> <hr />
                             <dt>Müşteri Yorumu:</dt>
                             <dd>
                                 <p>
-                                    @*@Model.MusteriYorumu*@
+                                    @Model.MusteriYorumu
                                 </p> <hr />
                             </dd>
-                            <dt>Şehir: @*@Model.SehirAdi*@</dt>   <hr />
-                            <dt>Adres: @*@Model.Adres*@</dt> <hr />
+                            <dt>Şehir: @Model.SehirAdi</dt>   <hr />
+                            <dt>Adres: @Model.Adres</dt> <hr />
                             
-                            <dt>Garanti Durumu : @Html.CheckBox("Garanti Durumu", @*Model.GarantiDurumu*@  new { disabled = "true" })  </dt>                                                                  
+                            <dt>Garanti Durumu : @Html.CheckBox("Garanti Durumu", Model.GarantiDurumu , new { disabled = "true" })  </dt>                                                                  
                         </dl>
                        
                         <hr>
@@ -56,7 +56,7 @@
                                     <dt>Atanacak Teknisyen</dt>
                                     <dd>
                                         <select class="form-control form-control-sm" style="width:70px;">
-                                            @*@Model.TeknisyenId*@
+                                            @Model.TeknisyenId
                                         </select>
                                     </dd>
                                 </dl>  <!-- item-property .// -->
