@@ -46,13 +46,25 @@ namespace TeknikServis.Web.UI.Controllers
 
             };
 
-
-
-
             return View(model);
+ 
+        }
+        [HttpPost]
+        public ActionResult OperatorAtama(ArizaViewModel model)
+        {
+            var id2 = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            var user = NewUserManager().FindById(id2);
 
 
-           
+            var ariza = new ArizaRepo().GetById(model.ArizaId);
+
+            
+            
+            ariza.OperatorId = user.Id;
+            new ArizaRepo().Update(ariza);
+
+     
+            return RedirectToAction("Index");
         }
     }
 }
