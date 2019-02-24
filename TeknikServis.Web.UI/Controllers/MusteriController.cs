@@ -21,8 +21,7 @@ namespace TeknikServis.Web.UI.Controllers
         {
             return View();
         }
-
-
+         
         public ActionResult Ekle (ArizaViewModel model)
         {
             try
@@ -98,7 +97,16 @@ namespace TeknikServis.Web.UI.Controllers
             catch (Exception)
             {
 
-                throw;
+
+                TempData["Model"] = new ErrorViewModel()
+                {
+                    Text = $"Arıza Eklenmesi Sırasında Bir Hata Oluştu",
+                    ActionName = "ArizaKayit",
+                    ControllerName = "Musteri",
+                    ErrorCode = 404
+                };
+                return RedirectToAction("Error", "Home");
+
             }
             return RedirectToAction("ArizaKayit","Musteri");
         }

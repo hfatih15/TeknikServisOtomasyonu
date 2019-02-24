@@ -52,18 +52,38 @@ namespace TeknikServis.Web.UI.Controllers
         [HttpPost]
         public ActionResult OperatorAtama(ArizaViewModel model)
         {
-            var id2 = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
-            var user = NewUserManager().FindById(id2);
+
+            try
+            {
+                var id2 = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+                var user = NewUserManager().FindById(id2);
+                var ariza = new ArizaRepo().GetById(model.ArizaId);
+                if (user != null)
+                {
+
+                    ariza.OperatorId = user.Id;
+                    new ArizaRepo().Update(ariza);
+                    ariza.ArizaKabulEdildiMi = true;
+
+                }
 
 
-            var ariza = new ArizaRepo().GetById(model.ArizaId);
+
+            }
+            catch (Exception)
+            {
 
 
-            ariza.ArizaKabulEdildiMi = true;          
-            ariza.OperatorId = user.Id;
-            new ArizaRepo().Update(ariza);
+                TempData["Model"] = new ErrorViewModel()
+                {
+                    Text = $"Operator Atanması Sırasında Bir Hata Oluştu",
+                    ActionName = "Index",
+                    ControllerName = "Operator",
+                    ErrorCode = 500
+                };
+                return RedirectToAction("Error", "Home");
 
-     
+            }
             return RedirectToAction("Index");
         }
     }
