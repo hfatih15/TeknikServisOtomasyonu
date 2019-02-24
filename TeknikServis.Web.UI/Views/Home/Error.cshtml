@@ -10,7 +10,7 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-        404
+        @(message?.ErrorCode ?? 404)
         <small>Page Not Found</small>
     </h1>
 
@@ -18,7 +18,7 @@
         <li class="breadcrumb-item">
             <a href="@Url.Action(message?.ActionName??"Index",message?.ControllerName??"Home")">Geri Dön</a>
         </li>
-        <li class="breadcrumb-item active">404</li>
+        <li class="breadcrumb-item active">@(message?.ErrorCode ?? 404)</li>
     </ol>
 
     <div class="jumbotron">

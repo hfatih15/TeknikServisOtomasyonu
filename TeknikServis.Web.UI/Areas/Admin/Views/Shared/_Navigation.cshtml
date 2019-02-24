@@ -19,10 +19,10 @@
                 </div>
             </li>
             <li class="@Html.IsSelected(action: "Index")">
-                <a href="@Url.Action("Index", "AdminHome")"><i class="fa fa-laptop"></i> <span class="nav-label">Main page</span> </a>
+                <a href="@Url.Action("Index", "AdminHome")"><i class="fa fa-laptop"></i> <span class="nav-label">Ana Sayfa</span> </a>
             </li>
             <li class="@Html.IsSelected(action: "Minor")">
-                <a href="@Url.Action("Minor", "AdminHome")"><i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span></a>
+                <a href="@Url.Action("Index", "Home" ,  new { area = "" })"><i class="fa fa-desktop"></i> <span class="nav-label">Kullanıcı Tarafı</span></a>
             </li>
         </ul>
     </div>

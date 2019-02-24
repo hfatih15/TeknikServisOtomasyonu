@@ -226,7 +226,7 @@ namespace TeknikServis.Web.UI.Areas.Admin.Controllers
                     ControllerName = "Admin",
                     ErrorCode = 500
                 };
-                return RedirectToAction("Error", "Home");
+                return RedirectToAction("Error", "Home", new { area = "" });
             }
         }
 
