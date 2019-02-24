@@ -37,7 +37,7 @@ namespace TeknikServis.Models.Entities
     
         [DisplayName("Arıza Kabul Durumu")]
         public bool? ArizaKabulEdildiMi { get; set; }
-        
+
         [DisplayName("Arıza Teknisyen Durumu")]
         public bool? ArizaTeknisyeneAtandiMi { get; set; }
         [Required]

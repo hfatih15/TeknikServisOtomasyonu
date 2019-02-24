@@ -25,6 +25,7 @@
                     <th>Ürünün Bulunduğu Şehir</th>
                     <th>Ürün Adresi</th>
                     <th>Ürün Garanti Durumu</th>
+                    <th>Teknisyen Atandı Mı</th>
                     <th class="text-center" style="width: 10%;">Actions</th>
                 </tr>
             </thead>
@@ -45,6 +46,7 @@
                         <td>@data.SehirAdi</td>
                         <td>@data.Adres</td>
                         <td>@Html.CheckBox("Garanti Durumu", data.GarantiDurumu, new { disabled = "true" })</td>
+                        <td>@data.ArizaTeknisyeneAtandiMi</td>
                         <td class="text-center">
                             <div class="btn-group">
                                 <button class="btn btn-xs btn-default btnsendcode" name="@data.Id" type="button" title="Send Activation Code">

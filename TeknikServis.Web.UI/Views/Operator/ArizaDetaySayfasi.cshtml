@@ -12,8 +12,7 @@
 <div class="container">
     <hr />
 
-    @using (Html.BeginForm("ArizaDetaySayfasi", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
-    {
+   
 
         <div class="card">
             <div class="row">
@@ -57,20 +56,31 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <dl class="param param-inline">
-                                    <dt>Atanacak Teknisyen</dt>
-                                    <dd>
-                                        <select class="form-control form-control-sm" style="width:70px;">
-                                            @Model.TeknisyenId
-                                        </select>
-                                    </dd>
-                                </dl>  <!-- item-property .// -->
+                                   
+
+                                        <dt>Atanacak Teknisyen</dt>
+                                        <dd>
+                                            @using (Html.BeginForm("TeknisyenAtama", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
+                                            {
+
+                                                @Html.HiddenFor(x => x.ArizaId);
+                                                @Html.DropDownListFor(x => x.TeknisyenId, (List<SelectListItem>)ViewBag.TeknisyenK, new { @class = "form-control", size = "1" })
+
+                                            <button type="submit" class="btn btn-lg btn-primary text-uppercase">Seçili Teknisyeni Ata</button>
+                                            }
+                                                @*<select class="form-control form-control-sm" style="width:70px;">
+                                                   @Model.TeknisyenId
+                                               </select>*@
+                                            </dd>
+                                    </dl>  <!-- item-property .// -->
                             </div> <!-- col.// -->
                             <div class="col-sm-7">
 
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->
                         <hr>
-                        <button type="submit" class="btn btn-lg btn-primary text-uppercase">Seçili Teknisyeni Ata</button>
+                       
+                        
                         @*<a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>*@
 
                     </article> <!-- card-body.// -->
@@ -78,7 +88,7 @@
             </div> <!-- row.// -->
         </div> <!-- card.// -->
 
-    }
+    
     @using (Html.BeginForm("OperatorAtama", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(x=>x.ArizaId);

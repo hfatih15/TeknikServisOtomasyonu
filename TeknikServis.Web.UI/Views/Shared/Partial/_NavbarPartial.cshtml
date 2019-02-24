@@ -23,12 +23,11 @@
                         <a class="nav-link" style="color:white;" href="@Url.Action("GirisSayfasi", "Account")">Giriş Yap</a>
                     </li>
                 }
-                @if (User.IsInRole("Admin") || User.IsInRole("Operator") || User.IsInRole("Teknisyen") || User.IsInRole("Musteri"))
-                {
+                
                     <li class="nav-item">
                         <a class="nav-link" style="color:white;" href="@Url.Action("Logout", "Account")">Çıkış Yap</a>
                     </li>
-                }
+                
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item">
