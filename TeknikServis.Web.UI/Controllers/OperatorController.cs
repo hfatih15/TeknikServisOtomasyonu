@@ -58,8 +58,8 @@ namespace TeknikServis.Web.UI.Controllers
 
             var ariza = new ArizaRepo().GetById(model.ArizaId);
 
-            
-            
+
+            ariza.ArizaKabulEdildiMi = true;          
             ariza.OperatorId = user.Id;
             new ArizaRepo().Update(ariza);
 
