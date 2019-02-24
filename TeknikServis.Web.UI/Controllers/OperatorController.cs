@@ -14,11 +14,12 @@ namespace TeknikServis.Web.UI.Controllers
     public class OperatorController : Controller
     {
         // GET: Operator
+        [Authorize(Roles ="Admin,Operator")]
         public ActionResult Index()
         {
             return View(new ArizaRepo().GetAll());
         }
-
+        [Authorize(Roles = "Admin,Operator")]
         public ActionResult ArizaDetaySayfasi(int id = 0)
         {
             var data = new ArizaRepo().GetById(id);
@@ -50,6 +51,8 @@ namespace TeknikServis.Web.UI.Controllers
  
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Operator")]
         public ActionResult OperatorAtama(ArizaViewModel model)
         {
 

@@ -25,11 +25,12 @@ namespace TeknikServis.Web.UI.Controllers
         {
             if (HttpContext.GetOwinContext().Authentication.User.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Home");
+
             return View();
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterLoginViewModel model)
         {
             if (!ModelState.IsValid)
@@ -124,7 +125,7 @@ namespace TeknikServis.Web.UI.Controllers
 
         [HttpPost]
         
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(RegisterLoginViewModel model)
         {
 
@@ -224,6 +225,8 @@ namespace TeknikServis.Web.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> UpdateProfile(ProfilePasswordViewModel model)
         {
             if (!ModelState.IsValid)
@@ -288,6 +291,8 @@ namespace TeknikServis.Web.UI.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ProfilePasswordViewModel model)
         {
             try
