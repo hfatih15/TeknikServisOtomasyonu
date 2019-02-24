@@ -20,11 +20,11 @@
                 <aside class="col-sm-5 border-right">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                                <div> <a href="@Model.UrunResmi"><img src="@Model.UrunResmi"></a></div>
-                            </div> <!-- slider-product.// -->
-                            <div class="img-small-wrap">
-                                <div class="item-gallery"><a href="@Model.FaturaResmi"> <img src="@Model.FaturaResmi"></a> </div>
-                            </div> <!-- slider-nav.// -->
+                            <div> <a href="@Model.UrunResmi"><img src="@Model.UrunResmi"></a></div>
+                        </div> <!-- slider-product.// -->
+                        <div class="img-small-wrap">
+                            <div class="item-gallery"><a href="@Model.FaturaResmi"> <img src="@Model.FaturaResmi"></a> </div>
+                        </div> <!-- slider-nav.// -->
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-7">
@@ -32,23 +32,27 @@
                         <h2 class="title mb-3">Ürün Detay Sayfası</h2>
 
                         <dl class="item-property">
-                            <dt>Müşteri Adı Soyadı: <b>@MemberShipTools.GetNameSurname(null)</b></dt> <hr />
+                            <dt>Müşteri Adı Soyadı: <b>@MemberShipTools.GetNameSurname(null)</b></dt>
+                            <hr />
                             <dt>
                                 Ürün Tipi :  <b>@Model.UrunTipi</b> <hr />
-                            </dt> 
-                            <dt>Ürün Adı: <b>@Model.UrunAdi</b></dt> <hr />
+                            </dt>
+                            <dt>Ürün Adı: <b>@Model.UrunAdi</b></dt>
+                            <hr />
                             <dt>Müşteri Yorumu:</dt>
                             <dd>
                                 <p>
                                     @Model.MusteriYorumu
                                 </p> <hr />
                             </dd>
-                            <dt>Şehir: @Model.SehirAdi</dt>   <hr />
-                            <dt>Adres: @Model.Adres</dt> <hr />
-                            
-                            <dt>Garanti Durumu : @Html.CheckBox("Garanti Durumu", Model.GarantiDurumu , new { disabled = "true" })  </dt>                                                                  
+                            <dt>Şehir: @Model.SehirAdi</dt>
+                            <hr />
+                            <dt>Adres: @Model.Adres</dt>
+                            <hr />
+
+                            <dt>Garanti Durumu : @Html.CheckBox("Garanti Durumu", Model.GarantiDurumu, new { disabled = "true" })  </dt>
                         </dl>
-                       
+
                         <hr>
                         <div class="row">
                             <div class="col-sm-5">
@@ -73,9 +77,16 @@
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->
         </div> <!-- card.// -->
-      }
 
-    </div>
+    }
+    @using (Html.BeginForm("OperatorAtama", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(x=>x.ArizaId);
+        <button type="submit" class="btn btn-lg btn-primary text-uppercase">Arızayı Üstlen</button>
+    }
+
+
+</div>
 <!--container.//-->
 
 @*<br><br><br>
