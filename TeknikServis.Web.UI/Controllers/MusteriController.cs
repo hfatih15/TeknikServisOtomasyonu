@@ -21,7 +21,9 @@ namespace TeknikServis.Web.UI.Controllers
         {
             return View();
         }
-         
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize (Roles ="Admin,Musteri")]
         public ActionResult Ekle (ArizaViewModel model)
         {
             try

@@ -17,78 +17,78 @@
                 <h4 class="heading"><strong>Arıza </strong> Kaydı <span></span></h4>
                 <div class="form">
                     @*<input type="text" required="" placeholder="Please input your Name" value="" name="name" class="txt">
-                    <input type="text" required="" placeholder="Please input your mobile No" value="" name="mob" class="txt">
-                    <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt">
+        <input type="text" required="" placeholder="Please input your mobile No" value="" name="mob" class="txt">
+        <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt">
 
-                    <textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>
-                    <input type="submit" value="submit" name="submit" class="txt2">*@
-              
-                        @using (Html.BeginForm("Ekle", "Musteri", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
-                        {
-                            <div class="form-group">
-                                @Html.Label("Urun Tipi")
-                                @Html.EnumDropDownListFor(x => x.UrunTipi, "Urun Tipini Seciniz", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.UrunAdi)
-                                @Html.TextBoxFor(x => x.UrunAdi, new { @class = "txt", placeholder = "Urun Adı", type = "text", name = "mob" })
-                            </div>
-                            <div class="form-group">
-                                @Html.Label("Arıza Açıklaması")
-                                @Html.TextAreaFor(x => x.MusteriYorumu, new { @class = "txt_3", placeholder = "Arıza Acıklaması", type = "text", name = "mess" })
-                            </div>
+        <textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>
+        <input type="submit" value="submit" name="submit" class="txt2">*@
+
+                    @using (Html.BeginForm("Ekle", "Musteri", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
+                    {@Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.Label("Urun Tipi")
+                        @Html.EnumDropDownListFor(x => x.UrunTipi, "Urun Tipini Seciniz", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.UrunAdi)
+                        @Html.TextBoxFor(x => x.UrunAdi, new { @class = "txt", placeholder = "Urun Adı", type = "text", name = "mob" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Arıza Açıklaması")
+                        @Html.TextAreaFor(x => x.MusteriYorumu, new { @class = "txt_3", placeholder = "Arıza Acıklaması", type = "text", name = "mess" })
+                    </div>
 
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        @Html.Label("Urun Fotografı")
-                                        @Html.TextBoxFor(x => x.UrunFotografi, new { @class = "form-control", type = "file", multiple = false })
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @Html.Label("Urun Fotografı")
+                                @Html.TextBoxFor(x => x.UrunFotografi, new { @class = "form-control", type = "file", multiple = false })
 
-                                    </div>
-                                </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        @Html.Label("Urun Faturası")
-                                        @Html.TextBoxFor(x => x.UrunFaturaFotografi, new { @class = "form-control", type = "file", multiple = false })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @Html.Label("Urun Faturası")
+                                @Html.TextBoxFor(x => x.UrunFaturaFotografi, new { @class = "form-control", type = "file", multiple = false })
 
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.Label("Bulundugunuz Şehir") 
-                                @Html.EnumDropDownListFor(
-                                    x => x.SehirAdi,
-                                    "Sehir Seçiniz",
-                                     new { @class = "form-control" })
-                            </div>
-                            <div class="form-group">
-                                 @Html.Label("Adresiniz")
-                                @Html.TextAreaFor(x => x.Adres, new { @class = "txt_3", placeholder = " Adres", type = "text", name = "mess" })
-                            </div>
-                            <div class="form-group text-center">
-                                @Html.Label("Garanti Durumu")
-
-                                @Html.CheckBoxFor(x => x.GarantiDurumu, new { @checked = "Garantisi Var" })
                             </div>
 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Bulundugunuz Şehir")
+                        @Html.EnumDropDownListFor(
+                            x => x.SehirAdi,
+                            "Sehir Seçiniz",
+                             new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Adresiniz")
+                        @Html.TextAreaFor(x => x.Adres, new { @class = "txt_3", placeholder = " Adres", type = "text", name = "mess" })
+                    </div>
+                    <div class="form-group text-center">
+                        @Html.Label("Garanti Durumu")
 
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 col-sm-offset-3">
-                                        @*<button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>*@
-                                        <button type="submit" class="form-control btn btn-register" style="background-color:black; color:white;" value="submit" name="submit">Kaydet </button>
-                                    </div>
-                                </div>
+                        @Html.CheckBoxFor(x => x.GarantiDurumu, new { @checked = "Garantisi Var" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                @*<button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>*@
+                                <button type="submit" class="form-control btn btn-register" style="background-color:black; color:white;" value="submit" name="submit">Kaydet </button>
                             </div>
+                        </div>
+                    </div>
 
-                        }
+                }
 
 
-                  
+
 
                 </div>
             </div>

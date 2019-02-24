@@ -31,76 +31,76 @@
                 </div>
                 <div class="panel-body" >
                     <div class="row">
-                        <div class="col-lg-12" >
+                        <div class="col-lg-12">
                             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "login-form", role = "form", style = "display: block;" }))
-                            {
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username", id = "username", name = "username" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.LoginViewModel.Password, new { @class = "form-control", placeholder = "Password", type = "password", id = "password", name = "password" })
-                                </div>
-                                <div class="form-group text-center">
-                                    @Html.CheckBoxFor(x => x.LoginViewModel.RememberMe, new { id = "remember", name = "remember" })
-                                    <label for="remember"> Beni Hatırla</label>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-offset-3">
-                                            <button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>
-                                          
-                                        </div>
+                            {@Html.AntiForgeryToken()
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.LoginViewModel.UserName, new { @class = "form-control", placeholder = "Username", id = "username", name = "username" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.LoginViewModel.Password, new { @class = "form-control", placeholder = "Password", type = "password", id = "password", name = "password" })
+                            </div>
+                            <div class="form-group text-center">
+                                @Html.CheckBoxFor(x => x.LoginViewModel.RememberMe, new { id = "remember", name = "remember" })
+                                <label for="remember"> Beni Hatırla</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>
+
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="text-center">
-                                                <a href="@Url.Action("RecoverPassword", "Account")" tabindex="5" class="forgot-password" style="color:black;">Şifrenizi Mi Unuttunuz ?</a>
-                                            </div>
-                                           
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="text-center">
+                                            <a href="@Url.Action("RecoverPassword", "Account")" tabindex="5" class="forgot-password" style="color:black;">Şifrenizi Mi Unuttunuz ?</a>
                                         </div>
+
                                     </div>
                                 </div>
-                            }
+                            </div>
+                        }
                             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "register-form", role = "form", style = "display: none;" }))
-                            {
-                                <div class="form-group">
+                            {@Html.AntiForgeryToken()
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Ad, new { @class = "form-control", placeholder = "Adınız" })
-                                </div>
-                                <div class="form-group">
+                                @Html.TextBoxFor(x => x.RegisterViewModel.Ad, new { @class = "form-control", placeholder = "Adınız" })
+                            </div>
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
-                                </div>
+                                @Html.TextBoxFor(x => x.RegisterViewModel.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
+                            </div>
 
-                                <div class="form-group">
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.UserName, new { @class = "form-control", placeholder = "UserName", id = "username", name = "username" })
-                                </div>
-                                <div class="form-group">
+                                @Html.TextBoxFor(x => x.RegisterViewModel.UserName, new { @class = "form-control", placeholder = "UserName", id = "username", name = "username" })
+                            </div>
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email", type = "email" })
-                                </div>
-                                <div class="form-group">
+                                @Html.TextBoxFor(x => x.RegisterViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email", type = "email" })
+                            </div>
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.Password, new { @class = "form-control", placeholder = "Password", id = "password",
-                                   name = "password" , type="password" })
-                                </div>
-                                <div class="form-group">
+                                @Html.TextBoxFor(x => x.RegisterViewModel.Password, new { @class = "form-control", placeholder = "Password", id = "password",
+                               name = "password" , type="password" })
+                            </div>
+                            <div class="form-group">
 
-                                    @Html.TextBoxFor(x => x.RegisterViewModel.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password", id = "confirm-password",
-                                   name = "confirm-password" , type="password" })
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-offset-3">
-                                         
-                                            <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register" style="background-color:black;">Kayıt Ol</button>
-                                        </div>
+                                @Html.TextBoxFor(x => x.RegisterViewModel.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password", id = "confirm-password",
+                               name = "confirm-password" , type="password" })
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+
+                                        <button type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register" style="background-color:black;">Kayıt Ol</button>
                                     </div>
                                 </div>
-                            }
+                            </div>
+                        }
                         </div>
                     </div>
                 </div>

@@ -16,12 +16,12 @@ namespace TeknikServis.Web.UI.Controllers
     {
         List<SelectListItem> ButunTeknisyenler = new List<SelectListItem>();
         // GET: Operator
+        [Authorize(Roles ="Admin,Operator")]
         public ActionResult Index()
         {
             return View(new ArizaRepo().GetAll());
         }
-
-
+        [Authorize(Roles = "Admin,Operator")]
         public ActionResult ArizaDetaySayfasi(int id = 0)
         {
             var data = new ArizaRepo().GetById(id);
@@ -81,6 +81,8 @@ namespace TeknikServis.Web.UI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Operator")]
         public ActionResult OperatorAtama(ArizaViewModel model)
         {
 

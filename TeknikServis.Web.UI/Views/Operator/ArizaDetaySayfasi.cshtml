@@ -90,8 +90,9 @@
 
     
     @using (Html.BeginForm("OperatorAtama", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
-    {
-        @Html.HiddenFor(x=>x.ArizaId);
+        { 
+        @Html.AntiForgeryToken()
+    @Html.HiddenFor(x=>x.ArizaId);
         <button type="submit" class="btn btn-lg btn-primary text-uppercase">Arızayı Üstlen</button>
     }
 
