@@ -16,7 +16,7 @@ namespace TeknikServis.Web.UI.Controllers
     {
         List<SelectListItem> ButunTeknisyenler = new List<SelectListItem>();
         // GET: Operator
-        [Authorize(Roles ="Admin,Operator")]
+        [Authorize(Roles = "Admin,Operator")]
         public ActionResult Index()
         {
             return View(new ArizaRepo().GetAll());
@@ -34,16 +34,20 @@ namespace TeknikServis.Web.UI.Controllers
             var TeknisyenRolu = NewRoleManager().FindByName("Teknisyen").Users.Select(x => x.UserId).ToList();
 
 
-            var T = new ArizaRepo().GetAll().ToList();
+            var arizalar = new ArizaRepo().GetAll().ToList();
+
+            var userManager = NewUserManager();
+            var userlar = userManager.Users.ToList();
+            var teknisyenId = new ArizaRepo().GetAll(x => x.ArizaTeknisyeneAtandiMi == true).Select(x => x.TeknisyenId).ToList();
 
             for (int i = 0; i < TeknisyenRolu.Count; i++)
             {
 
                 var User = NewUserManager().FindById(TeknisyenRolu[i]);
 
-                foreach (var item in T)
+                foreach (var item in arizalar)
                 {
-                    if (item.TeknisyenId != User.Id)
+                    if (item.TeknisyenId != User.Id && !(teknisyenId.Contains(item.TeknisyenId))&& User.AtandiMi==false)
                     {
                         ButunTeknisyenler.Add(new SelectListItem()
                         {
@@ -95,8 +99,10 @@ namespace TeknikServis.Web.UI.Controllers
                 {
 
                     ariza.OperatorId = user.Id;
-                    new ArizaRepo().Update(ariza);
                     ariza.ArizaKabulEdildiMi = true;
+                    ariza.ArizaKabulTarihi = DateTime.Now;
+                    new ArizaRepo().Update(ariza);
+
 
                 }
 
@@ -118,12 +124,33 @@ namespace TeknikServis.Web.UI.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult TeknisyenAtama(ArizaViewModel model)
+        public async Task<ActionResult> TeknisyenAtama(ArizaViewModel model)
 
         {
+           
+            var userStore = NewUserStore();
+
+            var TeknisyenRolu = NewRoleManager().FindByName("Teknisyen").Users.Select(x => x.UserId).ToList();
+
+
+          
+            for (int i = 0; i < TeknisyenRolu.Count; i++)
+            {
+
+                var User = await userStore.FindByIdAsync(TeknisyenRolu[i]);
+                if (User.Id == model.TeknisyenId)
+                {
+                    User.AtandiMi = true;
+                     await userStore.UpdateAsync(User);
+                    userStore.Context.SaveChanges();
+                    break;
+                   
+                }
+
+            }
             try
             {
-                var teknisyen =  NewUserManager().FindById(model.TeknisyenId);
+                var teknisyen = NewUserManager().FindById(model.TeknisyenId);
                 var ariza = new ArizaRepo().GetById(model.ArizaId);
                 if (teknisyen != null)
                 {
@@ -132,7 +159,7 @@ namespace TeknikServis.Web.UI.Controllers
                     ariza.ArizaTeknisyeneAtandiMi = true;
 
                     new ArizaRepo().Update(ariza);
-                   
+
                 }
                 else
                     throw new Exception("Teknisyen atama işlemi sırasında bir hata oluştu !");
