@@ -8,6 +8,7 @@ using TeknikServis.Models.Enums;
 
 namespace TeknikServis.Web.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BaseController : Controller
     {
         protected List<SelectListItem> GetUserList()

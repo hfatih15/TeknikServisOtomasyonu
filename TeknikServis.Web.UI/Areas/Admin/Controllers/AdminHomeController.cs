@@ -18,6 +18,7 @@ using static TeknikServis.BLL.Identity.MemberShipTools;
 
 namespace TeknikServis.Web.UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminHomeController : BaseController
     {
 
