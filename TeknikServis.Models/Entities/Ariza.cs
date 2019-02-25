@@ -31,9 +31,9 @@ namespace TeknikServis.Models.Entities
        
         [DisplayName("Arıza Tamir Bitiş Tarihi")]
         public DateTime? ArizaBitisTarihi { get; set; }
-       
+
         [DisplayName("Tamir Durumu")]
-        public bool? TamirEdildiMi { get; set; }
+        public bool TamirEdildiMi { get; set; } = false;
     
         [DisplayName("Arıza Kabul Durumu")]
         public bool? ArizaKabulEdildiMi { get; set; }

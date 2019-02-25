@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201902241044581_atanma.Designer.cs">
       <DependentUpon>201902241044581_atanma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902251535198_tamir.cs" />
+    <Compile Include="Migrations\201902251535198_tamir.Designer.cs">
+      <DependentUpon>201902251535198_tamir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +137,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902241044581_atanma.resx">
       <DependentUpon>201902241044581_atanma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902251535198_tamir.resx">
+      <DependentUpon>201902251535198_tamir.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

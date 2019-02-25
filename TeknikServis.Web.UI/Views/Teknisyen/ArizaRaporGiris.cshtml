@@ -26,6 +26,7 @@
                     {
                         @Html.AntiForgeryToken()
                         @Html.HiddenFor(x=>x.TeknisyenId)
+                        @Html.HiddenFor(x=>x.ArizaId)
 
                         <div class="form-group">
                             @Html.Label("Arıza Durumu")

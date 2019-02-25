@@ -32,17 +32,31 @@ namespace TeknikServis.Web.UI.Controllers
             {
                 var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
                 var user = NewUserManager().FindById(id);
-                var ariza = new ArizaRepo().GetById(model.TeknisyenId);
-                var model2 = new ArizaViewModel()
+                var tumArizalar = new ArizaRepo().GetAll();
+                foreach (var item in tumArizalar)
                 {
-                    ArizaId = ariza.Id,
-                    TeknisyenId=ariza.TeknisyenId
+                    if (item.TeknisyenId == user.Id)
+                    {
+                        var model2 = new ArizaViewModel()
+                        {
+                            ArizaId = item.Id,
+                            TeknisyenId = item.TeknisyenId
 
-                };
-                
-                model.ArizaId = ariza.Id;
-              ariza.UrunDurumu = model.UrunDurumu;
-                new ArizaRepo().Update(ariza);
+                        };
+
+
+                        var ariza = new ArizaRepo().GetById(model2.ArizaId);
+
+
+                        model.ArizaId = ariza.Id;
+                        ariza.UrunDurumu = model.UrunDurumu;
+                        new ArizaRepo().Update(ariza);
+                        break;
+                    }
+
+                }
+
+
             }
             catch (Exception)
             {
@@ -56,9 +70,68 @@ namespace TeknikServis.Web.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Teknisyen")]
-        public ActionResult ArizaBitir()
+        public async System.Threading.Tasks.Task<ActionResult> ArizaBitir(ArizaViewModel model)
         {
-            return View();
+
+
+            try
+            {
+                var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+                var user = NewUserManager().FindById(id);
+                var tumArizalar = new ArizaRepo().GetAll();
+                foreach (var item in tumArizalar)
+                {
+                    if (item.TeknisyenId == user.Id)
+                    {
+                        var model2 = new ArizaViewModel()
+                        {
+                            ArizaId = item.Id,
+                            TeknisyenId = item.TeknisyenId,
+                            ArizaBitisTarihi = item.ArizaBitisTarihi,
+                            TamirEdildiMi = item.TamirEdildiMi,
+                            TeknisyenYorumu = item.TeknisyenYorumu,
+
+
+
+                        };
+
+
+                        var ariza = new ArizaRepo().GetById(model2.ArizaId);
+
+
+                        ariza.Id = model2.ArizaId;
+                        model.ArizaBitisTarihi = DateTime.Now;
+                        ariza.TamirEdildiMi = model.TamirEdildiMi;
+                        ariza.TeknisyenYorumu = model.TeknisyenYorumu;
+                        model.TeknisyenId = null;
+
+
+                        ariza.ArizaBitisTarihi = model.ArizaBitisTarihi;
+                        ariza.TeknisyenId = model.TeknisyenId;
+                        user.AtandiMi = false;
+
+
+                        new ArizaRepo().Update(ariza);
+
+
+                        //var userStore = NewUserStore();
+                        //await userStore.UpdateAsync(user);
+                        //userStore.Context.SaveChanges();
+                        break;
+                    }
+
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return RedirectToAction("ArizaRaporGiris", "Teknisyen");
         }
     }
 }
