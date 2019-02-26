@@ -26,12 +26,6 @@
                         <a class="nav-link" style="color:white;" href="@Url.Action("GirisSayfasi", "Account")">Giriş Yap</a>
                     </li>
                 }
-                @if (User.IsInRole("Admin") || User.IsInRole("Operator") || User.IsInRole("Teknisyen") || User.IsInRole("Musteri"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link" style="color:white;" href="@Url.Action("Logout", "Account")">Çıkış Yap</a>
-                    </li>
-                }
 
                 @if (User.IsInRole("Admin"))
                 {
@@ -40,48 +34,68 @@
                     </li>
                 }
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Arıza Kaydı
-                    </a>
-                    @if (User.IsInRole("Admin") || User.IsInRole("Musteri"))
+                    @if (User.IsInRole("Admin") || User.IsInRole("Teknisyen") || User.IsInRole("Operator") || User.IsInRole("Musteri"))
                     {
+
+                        <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Arıza Kaydı
+                        </a>
+
                         <div class="dropdown-menu dropdown-menu-right" style="color:white;" aria-labelledby="navbarDropdownPortfolio">
                             <a class="dropdown-item" href="@Url.Action("ArizaKayit", "Musteri")">Arıza Girişi</a>
                             <a class="dropdown-item" href="@Url.Action("ArizaDurumu", "Musteri")">Arıza Durumu</a>
                             @*<a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>*@
+                    <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>*@
                         </div>
                     }
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Operatör
-                    </a>
                     @if (User.IsInRole("Admin") || User.IsInRole("Operator"))
                     {
+
+                        <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Operatör
+                        </a>
+
                         <div class="dropdown-menu dropdown-menu-right" style="color:white;" aria-labelledby="navbarDropdownBlog">
                             <a class="dropdown-item" href="@Url.Action("Index", "Operator")">Arıza Listesi</a>
                             @*<a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                            <a class="dropdown-item" href="blog-post.html">Blog Post</a>*@
+                    <a class="dropdown-item" href="blog-post.html">Blog Post</a>*@
                         </div>
                     }
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Teknisyen
-                    </a>
                     @if (User.IsInRole("Admin") || User.IsInRole("Teknisyen"))
                     {
+                        <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Teknisyen
+                        </a>
+
+
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                             <a class="dropdown-item" href="@Url.Action("ArizaRaporGiris", "Teknisyen")">Arıza Rapor Girişi</a>
                             @*<a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                            <a class="dropdown-item" href="faq.html">FAQ</a>
-                            <a class="dropdown-item" href="404.html">404</a>
-                            <a class="dropdown-item" href="pricing.html">Pricing Table</a>*@
+                    <a class="dropdown-item" href="faq.html">FAQ</a>
+                    <a class="dropdown-item" href="404.html">404</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing Table</a>*@
                         </div>
                     }
                 </li>
+ 
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="@Url.Action("Hakkimizda", "Account")">Hakkımızda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="@Url.Action("Iletisim", "Account")">Bize Ulaşın</a>
+                </li>
+                @if (User.IsInRole("Admin") || User.IsInRole("Operator") || User.IsInRole("Teknisyen") || User.IsInRole("Musteri"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" href="@Url.Action("Logout", "Account")">Çıkış Yap</a>
+                    </li>
+                }
             </ul>
         </div>
     </div>

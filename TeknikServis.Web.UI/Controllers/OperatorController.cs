@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TeknikServis.BLL.Repository;
+using TeknikServis.BLL.Services.Senders;
 using TeknikServis.Models.Entities;
 using TeknikServis.Models.Enums;
 using TeknikServis.Models.Idendity_Models;
@@ -158,7 +159,12 @@ namespace TeknikServis.Web.UI.Controllers
 
                 }
                 else
+                {
                     throw new Exception("Teknisyen atama işlemi sırasında bir hata oluştu !");
+                }
+                var emailService = new EmailService();
+                var body = $"Merhaba <b>{teknisyen.Ad} {teknisyen.Soyad}</b><br> <b>Tipi:</b>{ariza.UrunTipi} <b>Modeli:</b>{ariza.UrunAdi}olan arızalı ürün tamir edilmek üzere şahsınıza atanmıştır.";
+                await emailService.SendAsync(new IdentityMessage() { Body = body, Subject = "Arıza Ataması" }, teknisyen.Email);
 
             }
             catch (Exception)

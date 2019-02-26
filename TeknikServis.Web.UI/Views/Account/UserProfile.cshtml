@@ -44,70 +44,71 @@
                     <div class="row">
                         <div class="col-lg-12">
                             @using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post, new { id = "login-form", role = "form", style = "display: block;" }))
-                            {@Html.AntiForgeryToken()
-                            <div class="form-group">
-                                @Html.TextBoxFor(x => x.ChangePasswordViewModel.OldPassword, new { @class = "form-control", placeholder = "Mevcut Şifrenizi Giriniz", id = "username", type = "password", name = "username" })
-                            </div>
-                            <div class="form-group">
-                                @Html.TextBoxFor(x => x.ChangePasswordViewModel.NewPassword, new { @class = "form-control", placeholder = "Yeni Şifrenizi Giriniz", type = "password", id = "password", name = "password" })
-                            </div>
-                            <div class="form-group text-center">
-                                @Html.TextBoxFor(x => x.ChangePasswordViewModel.ConfirmNewPassword, new { @class = "form-control", placeholder = "Yeni Şifrenizi Tekrar Giriniz", type = "password", id = "password", name = "password" })
-
-
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 col-sm-offset-3">
-                                        <button type="submit" style="background-color:black;" name="register-submit" id="register-submit" class="form-control btn btn-register">Sifreyi Güncelle</button>
-                                        @*<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">*@
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="text-center">
-                                            <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Sifremi Unuttum</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                            @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { id = "register-form", role = "form", style = "display: none;", @class = "fieldset", enctype = "multipart/form-data" }))
                             {
+                                @Html.AntiForgeryToken()
                                 <div class="form-group">
-                                    @Html.HiddenFor(x => x.UserProfileViewModel.Id)
-                                    @Html.HiddenFor(x => x.UserProfileViewModel.UserName)
-                                    @Html.TextBoxFor(x => x.UserProfileViewModel.Ad, new { @class = "form-control", placeholder = "Adınız" })
+                                    @Html.TextBoxFor(x => x.ChangePasswordViewModel.OldPassword, new { @class = "form-control", placeholder = "Mevcut Şifrenizi Giriniz", id = "username", type = "password", name = "username" })
                                 </div>
                                 <div class="form-group">
-
-                                    @Html.TextBoxFor(x => x.UserProfileViewModel.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
+                                    @Html.TextBoxFor(x => x.ChangePasswordViewModel.NewPassword, new { @class = "form-control", placeholder = "Yeni Şifrenizi Giriniz", type = "password", id = "password", name = "password" })
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group text-center">
+                                    @Html.TextBoxFor(x => x.ChangePasswordViewModel.ConfirmNewPassword, new { @class = "form-control", placeholder = "Yeni Şifrenizi Tekrar Giriniz", type = "password", id = "password", name = "password" })
 
-                                    @Html.TextBoxFor(x => x.UserProfileViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email", type = "email" })
+
                                 </div>
-                                <div class="form-group">
-
-                                    @Html.TextBoxFor(x => x.UserProfileViewModel.TelefonNO, new { @class = "form-control", placeholder = "Telefon No", id = "telefonno", name = "telefonno" })
-                                </div>
-
-                                <div class="form-group">
-
-                                    @Html.TextBoxFor(x => x.UserProfileViewModel.PostedFile, new { @class = "form-control", type = "file", multiple = false })
-                                </div>
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-
-                                            <button type="submit" style="background-color:black;" name="register-submit" id="register-submit" class="form-control btn btn-register">Güncelle</button>
+                                            <button type="submit" style="background-color:black;" name="register-submit" id="register-submit" class="form-control btn btn-register">Sifreyi Güncelle</button>
+                                            @*<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="text-center">
+                                                <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Sifremi Unuttum</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             }
+                            @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { id = "register-form", role = "form", style = "display: none;", @class = "fieldset", enctype = "multipart/form-data" }))
+                            {@Html.AntiForgeryToken()
+                            <div class="form-group">
+                                @Html.HiddenFor(x => x.UserProfileViewModel.Id)
+                                @Html.HiddenFor(x => x.UserProfileViewModel.UserName)
+                                @Html.TextBoxFor(x => x.UserProfileViewModel.Ad, new { @class = "form-control", placeholder = "Adınız" })
+                            </div>
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.UserProfileViewModel.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
+                            </div>
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.UserProfileViewModel.Email, new { @class = "form-control", placeholder = "Email", id = "email", name = "email", type = "email" })
+                            </div>
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.UserProfileViewModel.TelefonNO, new { @class = "form-control", placeholder = "Telefon No", id = "telefonno", name = "telefonno" })
+                            </div>
+
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.UserProfileViewModel.PostedFile, new { @class = "form-control", type = "file", multiple = false })
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+
+                                        <button type="submit" style="background-color:black;" name="register-submit" id="register-submit" class="form-control btn btn-register">Güncelle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                         </div>
                     </div>
                 </div>

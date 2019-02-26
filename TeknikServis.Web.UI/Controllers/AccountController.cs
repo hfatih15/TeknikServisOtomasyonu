@@ -455,8 +455,17 @@ namespace TeknikServis.Web.UI.Controllers
 
             return View();
         }
-        
 
-      
+        public ActionResult Iletisim()
+        {
+            return View();
+        }
+
+        public ActionResult Hakkimizda()
+        {
+            return View();
+        }
+
+
     }
 }
