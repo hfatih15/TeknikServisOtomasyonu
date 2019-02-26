@@ -103,12 +103,12 @@ namespace TeknikServis.Web.UI.Controllers
                         model.ArizaBitisTarihi = DateTime.Now;
                         ariza.TamirEdildiMi = model.TamirEdildiMi;
                         ariza.TeknisyenYorumu = model.TeknisyenYorumu;
-                        model.TeknisyenId = null;
+                      //  model.TeknisyenId = null;
 
 
                         ariza.ArizaBitisTarihi = model.ArizaBitisTarihi;
-                        ariza.TeknisyenId = model.TeknisyenId;
-                        user.AtandiMi = false;
+                    //    ariza.TeknisyenId = model.TeknisyenId;
+                    //    user.AtandiMi = false;
 
 
                         new ArizaRepo().Update(ariza);
