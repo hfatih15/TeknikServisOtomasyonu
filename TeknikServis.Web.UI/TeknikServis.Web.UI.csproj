@@ -451,6 +451,7 @@
     <Content Include="Views\Teknisyen\ArizaRaporGiris.cshtml" />
     <Content Include="Views\Operator\Index.cshtml" />
     <Content Include="Views\Operator\ArizaDetaySayfasi.cshtml" />
+    <Content Include="Views\Musteri\ArizaDurumu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

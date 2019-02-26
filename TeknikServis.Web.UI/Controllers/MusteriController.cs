@@ -113,6 +113,12 @@ namespace TeknikServis.Web.UI.Controllers
             return RedirectToAction("ArizaKayit","Musteri");
         }
 
+        public ActionResult ArizaDurumu()
+        {
+            var musteriid = HttpContext.User.Identity.GetUserId();
+            var data = new ArizaRepo().GetAll(x => x.MusteriId == musteriid).ToList();
+            return View(data);
+        }
 
     }
 }
