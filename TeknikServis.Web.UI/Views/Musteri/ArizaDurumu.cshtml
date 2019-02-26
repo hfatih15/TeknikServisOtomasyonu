@@ -24,8 +24,8 @@
                     <th>Teknisyen Yorumu</th>
                     <th>Arızanın Durumu</th>
                     <th>Tamir Durumu</th>
-                    
-                   
+
+
                 </tr>
             </thead>
             <tbody>
@@ -35,37 +35,37 @@
 
                     var data = Model[i];
                     var data2 = MemberShipTools.GetNameSurname(Model[i].MusteriId);
-                    var data3 = MemberShipTools.GetOperator(Model[i].OperatorId);
-                    var data4 = MemberShipTools.GetTechnician(Model[i].TeknisyenId);
-                <tr>
-                    <td class="text-center">@(i + 1)</td>
-                    @*<td class="text-center"></td>*@
-                    <td>@data2</td>
-                    <td>@data.UrunTipi</td>
-                    <td>@data.UrunAdi</td>
-                    <td>@data3</td>
-                    <td>@data4</td>
-                    <td>@data.TeknisyenYorumu</td>
-                    <td>@data.UrunDurumu</td>
-                    <td>@data.TamirEdildiMi</td>
-                    
+                    var data3 = data.OperatorId == null ? "Öperatör atanmadı" : MemberShipTools.GetOperator(data.OperatorId);
+                    var data4 = data.TeknisyenId == null ? "Teknisyen Atanmadı" : MemberShipTools.GetTechnician(data.TeknisyenId);
+                    <tr>
+                        <td class="text-center">@(i + 1)</td>
+                        @*<td class="text-center"></td>*@
+                        <td>@data2</td>
+                        <td>@data.UrunTipi</td>
+                        <td>@data.UrunAdi</td>
+                        <td>@data3</td>
+                        <td>@data4</td>
+                        <td>@data.TeknisyenYorumu</td>
+                        <td>@data.UrunDurumu</td>
+                        <td>@data.TamirEdildiMi</td>
 
-                    @*<td class="text-center">
-            <div class="btn-group">
-                <button class="btn btn-xs btn-default btnsendcode" name="@data.Id" type="button" title="Send Activation Code">
-                    <i class="ion-android-mail"></i>
-                </button>
-                <button class="btn btn-xs btn-default btnsendpassword" name="@data.Id" type="button" title="Send Password">
-                    <i class="ion-key"></i>
-                </button>
-                <a href="@Url.Action("ArizaDetaySayfasi","Operator",new {id=data.Id})">
-                    Detay
 
-                    <i class="ion-edit"></i>
-                </a>
-            </div>
-        </td>*@
-                </tr>
+                        @*<td class="text-center">
+                                <div class="btn-group">
+                                    <button class="btn btn-xs btn-default btnsendcode" name="@data.Id" type="button" title="Send Activation Code">
+                                        <i class="ion-android-mail"></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-default btnsendpassword" name="@data.Id" type="button" title="Send Password">
+                                        <i class="ion-key"></i>
+                                    </button>
+                                    <a href="@Url.Action("ArizaDetaySayfasi","Operator",new {id=data.Id})">
+                                        Detay
+
+                                        <i class="ion-edit"></i>
+                                    </a>
+                                </div>
+                            </td>*@
+                    </tr>
                 }
             </tbody>
         </table>

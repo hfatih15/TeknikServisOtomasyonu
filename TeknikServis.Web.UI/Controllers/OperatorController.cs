@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using TeknikServis.BLL.Repository;
 using TeknikServis.Models.Entities;
+using TeknikServis.Models.Enums;
+using TeknikServis.Models.Idendity_Models;
 using TeknikServis.Models.ViewModels;
 using static TeknikServis.BLL.Identity.MemberShipTools;
 
@@ -38,29 +40,23 @@ namespace TeknikServis.Web.UI.Controllers
 
             var userManager = NewUserManager();
             var userlar = userManager.Users.ToList();
-            var teknisyenId = new ArizaRepo().GetAll(x => x.ArizaTeknisyeneAtandiMi == true).Select(x => x.TeknisyenId).ToList();
-
-            for (int i = 0; i < TeknisyenRolu.Count; i++)
+          //  var teknisyenId = new ArizaRepo().GetAll(x => x.ArizaTeknisyeneAtandiMi == true).Select(x => x.TeknisyenId).ToList();
+            ButunTeknisyenler = new List<SelectListItem>();
+            foreach (var item in userlar)
             {
-
-                var User = NewUserManager().FindById(TeknisyenRolu[i]);
-
-                foreach (var item in arizalar)
+                if (item.AtandiMi) continue;
+                if (userManager.IsInRole(item.Id, IdentityRoles.Teknisyen.ToString()))
                 {
-                    if (item.TeknisyenId != User.Id && !(teknisyenId.Contains(item.TeknisyenId))&& (User.AtandiMi==false||user.AtandiMi==null))
+                    ButunTeknisyenler.Add(new SelectListItem()
                     {
-                        ButunTeknisyenler.Add(new SelectListItem()
-                        {
 
-                            Text = User.Ad + " " + User.Soyad,
-                            Value = User.Id
-                        });
-
-                    }
-
+                        Text = item.Ad + " " + item.Soyad,
+                        Value = item.Id
+                    });
                 }
-
             }
+
+
 
             ViewBag.TeknisyenK = ButunTeknisyenler;
 
@@ -127,13 +123,13 @@ namespace TeknikServis.Web.UI.Controllers
         public async Task<ActionResult> TeknisyenAtama(ArizaViewModel model)
 
         {
-           
+
             var userStore = NewUserStore();
 
             var TeknisyenRolu = NewRoleManager().FindByName("Teknisyen").Users.Select(x => x.UserId).ToList();
 
 
-          
+
             for (int i = 0; i < TeknisyenRolu.Count; i++)
             {
 
@@ -141,10 +137,10 @@ namespace TeknikServis.Web.UI.Controllers
                 if (User.Id == model.TeknisyenId)
                 {
                     User.AtandiMi = true;
-                     await userStore.UpdateAsync(User);
+                    await userStore.UpdateAsync(User);
                     userStore.Context.SaveChanges();
                     break;
-                   
+
                 }
 
             }
