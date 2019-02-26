@@ -35,7 +35,7 @@ namespace TeknikServis.Models.ViewModels
             public DateTime? ArizaBitisTarihi { get; set; }
 
             [DisplayName("Tamir Durumu")]
-            public bool? TamirEdildiMi { get; set; }
+            public bool TamirEdildiMi { get; set; }
 
             [DisplayName("Arıza Kabul Durumu")]
             public bool? ArizaKabulEdildiMi { get; set; }

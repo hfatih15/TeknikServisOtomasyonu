@@ -47,7 +47,7 @@ namespace TeknikServis.Web.UI.Controllers
 
                 foreach (var item in arizalar)
                 {
-                    if (item.TeknisyenId != User.Id && !(teknisyenId.Contains(item.TeknisyenId))&& User.AtandiMi==false)
+                    if (item.TeknisyenId != User.Id && !(teknisyenId.Contains(item.TeknisyenId))&& (User.AtandiMi==false||user.AtandiMi==null))
                     {
                         ButunTeknisyenler.Add(new SelectListItem()
                         {

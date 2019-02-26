@@ -16,30 +16,44 @@
                 <h4 class="heading"><strong>Arıza </strong> Rapor Kaydı <span></span></h4>
                 <div class="form">
                     @*<input type="text" required="" placeholder="Please input your Name" value="" name="name" class="txt">
-                        <input type="text" required="" placeholder="Please input your mobile No" value="" name="mob" class="txt">
-                        <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt">
+        <input type="text" required="" placeholder="Please input your mobile No" value="" name="mob" class="txt">
+        <input type="text" required="" placeholder="Please input your Email" value="" name="email" class="txt">
 
-                        <textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>
-                        <input type="submit" value="submit" name="submit" class="txt2">*@
+        <textarea placeholder="Your Message" name="mess" type="text" class="txt_3"></textarea>
+        <input type="submit" value="submit" name="submit" class="txt2">*@
 
-                    @using (Html.BeginForm("Ekle", "Musteri", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("ArizaGuncelle", "Teknisyen", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
                     {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x=>x.TeknisyenId)
+                        @Html.HiddenFor(x=>x.ArizaId)
+
                         <div class="form-group">
                             @Html.Label("Arıza Durumu")
                             @Html.EnumDropDownListFor(x => x.UrunDurumu, "Arıza Durumunu Seciniz", new { @class = "form-control" })
+
                         </div>
-                      
+                        <div class="col-sm-6 col-sm-offset-3">
+                            @*<button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>*@
+                            <button type="submit" class="form-control btn btn-register" style="background-color:black; color:white;" value="submit" name="submit">Kaydet </button>
+                        </div>
+                    }
+                    @using (Html.BeginForm("ArizaBitir", "Teknisyen", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="form-group">
                             @Html.Label("Arıza Sonucu")
                             @Html.TextAreaFor(x => x.TeknisyenYorumu, new { @class = "txt_3", type = "text", name = "mess" })
+
                         </div>
+                        <div class="form-group">
+                            @Html.Label("Tamir Durumu")
+                            @Html.CheckBoxFor(x => x.TamirEdildiMi , new { @class = "txt_3", type = "text", name = "mess" })
 
-
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    @*<button type="submit" style="background-color:black" name="register-submit" id="register-submit" class="form-control btn btn-register">Giriş Yap</button>*@
-                                    <button type="submit" class="form-control btn btn-register" style="background-color:black; color:white;" value="submit" name="submit">Kaydet </button>
-                                </div>
-                          
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button type="submit" class="form-control btn btn-register" style="background-color:black; color:white;" value="submit" name="submit">Bitir </button>
+                        </div>
 
                     }
 
