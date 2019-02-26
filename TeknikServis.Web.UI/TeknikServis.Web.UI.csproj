@@ -691,6 +691,7 @@
     <Content Include="Views\Musteri\ArizaDurumu.cshtml" />
     <Content Include="Views\Account\Iletisim.cshtml" />
     <Content Include="Views\Account\Hakkimizda.cshtml" />
+    <Content Include="Views\Teknisyen\TeknisyenAriza.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -133,5 +133,12 @@ namespace TeknikServis.Web.UI.Controllers
 
             return RedirectToAction("ArizaRaporGiris", "Teknisyen");
         }
+
+        public ActionResult TeknisyenAriza()
+        {
+            var teknisyemId = HttpContext.User.Identity.GetUserId();
+            var data = new ArizaRepo().GetAll(x => x.TeknisyenId == teknisyemId).ToList();
+            return View(data);
+        }
     }
 }

@@ -1,0 +1,69 @@
+﻿@model List<TeknikServis.Models.Entities.Ariza>
+@using TeknikServis.BLL.Identity
+@{
+    ViewBag.Title = "TeknisyenAriza";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="card-block">
+    <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/base_tables_datatables.js -->
+    <table class="table table-bordered table-striped table-vcenter dataTable" >
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th>Müşteri Adı</th>
+                <th>Ürün Tipi</th>
+                <th>Ürün Adı</th>
+                @*<th>Ürün Fotoğrafı</th>
+                <th>Fatura Fotoğrafı</th>*@
+                <th>Garanti Durumu</th>
+                <th>Arızanın Durumu</th>
+                <th>Müşteri Yorumu</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+
+
+                var data = Model[i];
+                var data2 = MemberShipTools.GetNameSurname(Model[i].MusteriId);
+                
+                <tr>
+                    <td class="text-center">@(i + 1)</td>
+                    @*<td class="text-center"></td>*@
+                    <td>@data2</td>
+                    <td>@data.UrunTipi</td>
+                    <td>@data.UrunAdi</td>
+                    @*<td>@data.UrunFotografi</td>
+                    <td>@data.UrunFaturaFotografi</td>*@
+                    <td>@data.GarantiDurumu</td>
+                    <td>@data.UrunDurumu</td>
+                    <td>@data.MusteriYorumu</td>
+
+
+                    @*<td class="text-center">
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-default btnsendcode" name="@data.Id" type="button" title="Send Activation Code">
+                                    <i class="ion-android-mail"></i>
+                                </button>
+                                <button class="btn btn-xs btn-default btnsendpassword" name="@data.Id" type="button" title="Send Password">
+                                    <i class="ion-key"></i>
+                                </button>
+                                <a href="@Url.Action("ArizaDetaySayfasi","Operator",new {id=data.Id})">
+                                    Detay
+
+                                    <i class="ion-edit"></i>
+                                </a>
+                            </div>
+                        </td>*@
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
