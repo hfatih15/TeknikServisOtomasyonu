@@ -22,7 +22,7 @@ namespace TeknikServis.Models.Idendity_Models
 
         public SehirAdi? SehirAdi { get; set; }
         public string Adres { get; set; }
-        public bool? AtandiMi { get; set; }
+        public bool AtandiMi { get; set; } = false;
 
     }
 }
