@@ -28,25 +28,24 @@
                 </aside>
                 <aside class="col-sm-7">
                     <article class="card-body p-5">
-                        <h2 class="title mb-3">Ürün Detay Sayfası</h2>
+                        <h2 class="title mb-3" style="padding-bottom:40px;">Arıza Detay Sayfası</h2>
 
                         <dl class="item-property">
-                            <dt>Müşteri Adı Soyadı: <b>@MemberShipTools.GetNameSurname(null)</b></dt>
+                            <b>Müşteri Adı Soyadı:</b> @MemberShipTools.GetNameSurname(null)
                             <hr />
-                            <dt>
-                                Ürün Tipi :  <b>@Model.UrunTipi</b> <hr />
-                            </dt>
-                            <dt>Ürün Adı: <b>@Model.UrunAdi</b></dt>
+
+                            <b>Ürün Tipi :</b>@Model.UrunTipi
                             <hr />
-                            <dt>Müşteri Yorumu:</dt>
-                            <dd>
-                                <p>
-                                    @Model.MusteriYorumu
-                                </p> <hr />
-                            </dd>
-                            <dt>Şehir: @Model.SehirAdi</dt>
+
+                            <b>Ürün Adı:</b>  @Model.UrunAdi
                             <hr />
-                            <dt>Adres: @Model.Adres</dt>
+                            <b> Müşteri Yorumu:</b> @Model.MusteriYorumu
+
+                            <hr />
+
+                            <b>Şehir:</b>@Model.SehirAdi
+                            <hr />
+                            <b>Adres:</b>  @Model.Adres</dt>
                             <hr />
 
                             <dt>Garanti Durumu : @Html.CheckBox("Garanti Durumu", Model.GarantiDurumu, new { disabled = "true" })  </dt>
@@ -59,20 +58,21 @@
                                    
 
                                         <dt>Atanacak Teknisyen</dt>
+                                        
                                         <dd>
                                             @using (Html.BeginForm("TeknisyenAtama", "Operator", FormMethod.Post, new { id = "contactFrm", name = "contactFrm", @class = "fieldset", enctype = "multipart/form-data" }))
                                             {
 
                                                 @Html.HiddenFor(x => x.ArizaId);
-                                                @Html.DropDownListFor(x => x.TeknisyenId, (List<SelectListItem>)ViewBag.TeknisyenK, new { @class = "form-control", size = "1" })
+                                                @Html.DropDownListFor(x => x.TeknisyenId, (List<SelectListItem>)ViewBag.TeknisyenK, new { @class = "form-control", size = "1" , style="margin-top:18px"})
 
-                                            <button type="submit" class="btn btn-lg btn-primary text-uppercase">Seçili Teknisyeni Ata</button>
+                                            <button type="submit" class="btn btn-lg btn-primary text-uppercase" style="margin-top:50px; ">Seçili Teknisyeni Ata</button>
                                             }
                                                 @*<select class="form-control form-control-sm" style="width:70px;">
                                                    @Model.TeknisyenId
                                                </select>*@
-                                            </dd>
-                                    </dl>  <!-- item-property .// -->
+                                        </dd>
+                                </dl>  <!-- item-property .// -->
                             </div> <!-- col.// -->
                             <div class="col-sm-7">
 
@@ -93,7 +93,7 @@
         { 
         @Html.AntiForgeryToken()
     @Html.HiddenFor(x=>x.ArizaId);
-        <button type="submit" class="btn btn-lg btn-primary text-uppercase">Arızayı Üstlen</button>
+        <button type="submit" class="btn btn-lg btn-primary text-uppercase" style="margin-top:25px;">Arızayı Üstlen</button>
     }
 
 
